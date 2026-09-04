@@ -1,0 +1,17 @@
+# Force LF line endings repo-wide.
+#
+# This is not a style preference. The fixture canonical form requires \n line
+# endings (RFC-0001 §11), and the digest is computed over that canonical form —
+# so a conformance fixture checked out with CRLF on Windows hashes differently
+# from the same file on Linux. An implementation would then fail the digest
+# check for a reason that has nothing to do with the implementation, which is
+# the worst kind of conformance failure: it points at the wrong thing.
+#
+# The CLI repo carries the same rule for the same reason.
+* text=auto eol=lf
+
+# Binary assets: never touch.
+*.png binary
+*.jpg binary
+*.gz binary
+*.zip binary
